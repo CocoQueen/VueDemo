@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-once,v-html指令</title>
+</head>
+<body>
+<div id="app">
+  <h1>{{message}}</h1>
+  <h1 v-once>{{message}}</h1>
+  <h1 v-html="url"></h1>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'lallal',
+      url: '<a href="https://www.baidu.com">百度一下</a>'
+    }
+  })
+  //v-once指令：不希望界面随意的改变，即某标签数据为非响应式的数据
+  //v-html：服务器请求到的数据本身就是一个html数据
+  //v-text：用于将数据显示在界面中
+  //v-pre：用于跳过这个元素和它子元素的编译过程，用于显示原本的mustache语法
+  //v-cloak：在某些情况下，浏览器可能会直接显示出未编译的mustache标签
+</script>
+</body>
+</html>
