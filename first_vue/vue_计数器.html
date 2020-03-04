@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>计数器</title>
+</head>
+<body>
+<div id="app">
+    <h1>当前计数：{{counter}}</h1>
+    <!--第一种写法-->
+    <!-- <button v-on:click="counter++">+</button>
+       <button v-on:click="counter&#45;&#45;">-</button>-->
+    <!--第二种写法-->
+    <!--<button v-on:click="add">+</button>
+    <button v-on:click="sub">-</button>-->
+    <!--第三种写法-->
+    <button @click="add">+</button>
+    <button @click="sub">-</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const obj={
+        counter: 0
+    }
+    const app = new Vue({
+        el: '#app',
+        data:obj,
+        methods: {
+            add: function () {
+                console.log("+");
+                this.counter++
+            },
+            sub: function () {
+                console.log("-");
+                if (this.counter>0){
+                    this.counter--
+                }
+            }
+        }
+
+    })
+    //开发中什么时候称之为方法，什么时候称之为函数？
+    //方法：method   和某一实例对象挂钩
+    //函数：function
+</script>
+</body>
+</html>
