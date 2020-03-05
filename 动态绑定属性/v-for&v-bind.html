@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-for&v-bind</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="(item,index) in movies"
+        :class="{active:index===mark}"
+        @click="getcolor(index)">{{item}}</li>
+  </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      mark: 0,
+      movies: ['海贼王', '海尔兄弟', "火影忍者"],
+      active: 'active'
+    },
+    methods: {
+      getcolor (index) {
+        console.log(this.mark)
+        this.mark = index
+      }
+    }
+  })
+</script>
+</body>
+</html>
